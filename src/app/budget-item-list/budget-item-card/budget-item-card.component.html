@@ -1,0 +1,13 @@
+<div class="root">
+    <!-- Change class dynamically , the property will come from above, the budget item list-->
+    <!-- class income is applied if amount is greater or equal to zero -->
+    <div class="budget-item" (click)="onCardClick()" [ngClass]="{'income': item.amount >=0 , 'expense': item.amount < 0}">
+        <div class="description">
+            <p style="margin: 0 0 0 0">{{item.description}}</p>
+        </div>
+        <div class="amount">
+            <p style="margin: 0 0 0 0"> {{item.amount}} </p>
+        </div>
+    </div>
+    <div class="x-icon-button" (click)="onXButtonClick()"></div>
+</div>

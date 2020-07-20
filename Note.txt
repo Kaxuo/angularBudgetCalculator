@@ -1,0 +1,2 @@
+You installed bulma sass and imported it in styles.scss
+@import '../node_modules/bulma/bulma.sass'

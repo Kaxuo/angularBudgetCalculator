@@ -1,0 +1,27 @@
+<!-- After importing the FormsModule, you need to create a variable with # and then the method onsubmit -->
+<form #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)">
+    <div class="field is-horizontal">
+        <div class="field-body">
+            <!-- You added "is-Narrow" twice to make it longer ( creating that small space between input) -->
+            <div class="field is-narrow">
+                <p class="control">
+                    <input type="number" required name="amount" style="width:100px" class="input" placeholder="Amount" [ngModel]="item.amount" >
+                </p>
+            </div>
+
+            <div class="field">
+                <p class="control">
+                    <input type="text" required name="description" class="input" placeholder="Description" [ngModel]="item.description">
+                </p>
+            </div>
+
+            <div class="field is-narrow">
+                <!-- // Add / SAve depending on the boolean value in the ts file , in ngonInit -->
+                <button type="submit" class="button" [disabled] = "!itemForm.valid" [ngClass]="{'is-primary': isNewItem, 'is-success': !isNewItem}" >
+                    <p style="margin: 0 0 0 0" *ngIf="isNewItem">Add</p>
+                    <p style="margin: 0 0 0 0" *ngIf="!isNewItem">Save</p>
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
